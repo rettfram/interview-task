@@ -1,0 +1,12 @@
+{
+  "name": "interview-task",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node --experimental-sqlite --watch main.mjs"
+  },
+  "author": "Cezary Walczak",
+  "license": "MIT",
+  "description": ""
+}
