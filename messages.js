@@ -73,8 +73,8 @@ $(c => {
             `).join('')}
           </tbody>
         </table>
-      </message-table>
       ${showEditPopup() ? `<message-update data-id="${currentlyEditedMessageId()}"></message-update>` : ``}
     `}
+    </message-table>
   `
 },c)
