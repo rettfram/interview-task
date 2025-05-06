@@ -52,29 +52,29 @@ $(c => {
     </style>
 
     <message-insert></message-insert>
+    ${showEditPopup() ? `<message-update data-id="${currentlyEditedMessageId()}"></message-update>` : ``}
     <message-table>
-      ${messages().length === 0 ? `<p>Brak wiadomości</p>` : `        
-        <table>
-          <tbody>
+    ${messages().length === 0 ? `<p>Brak wiadomości</p>` : `        
+      <table>
+        <tbody>
+          <tr>
+            <th>ID</th>
+            <th>Wiadomość</th>
+            <th>Akcje</th>
+          </tr>
+          ${messages().map(({id, message}) => `
             <tr>
-              <th>ID</th>
-              <th>Wiadomość</th>
-              <th>Akcje</th>
+              <td>${id}</td>
+              <td>${message}</td>
+              <td>
+                <message-edit data-id="${id}"></message-edit>
+                <message-remove data-id="${id}"></message-remove>
+              </td>
             </tr>
-            ${messages().map(({id, message}) => `
-              <tr>
-                <td>${id}</td>
-                <td>${message}</td>
-                <td>
-                  <message-edit data-id="${id}"></message-edit>
-                  <message-remove data-id="${id}"></message-remove>
-                </td>
-              </tr>
-            `).join('')}
-          </tbody>
-        </table>
-      ${showEditPopup() ? `<message-update data-id="${currentlyEditedMessageId()}"></message-update>` : ``}
-    `}
+          `).join('')}
+        </tbody>
+      </table>
+      `}
     </message-table>
   `
 },c)
